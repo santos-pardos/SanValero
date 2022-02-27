@@ -1,0 +1,36 @@
+<html>
+<head>
+    <script language="JavaScript"> 
+        function mostrarSeleccionado(){ 
+               alert("Has seleccionado " + document.getSelection()) 
+        } 
+        </script> 
+</head>
+   
+<body>
+<H1>
+     Propiedades Document  
+</H1>
+<script> 
+    function cambiaColor(colorin){ 
+           document.bgColor = colorin 
+    }
+    
+    </script> 
+    <form> 
+    <input type="Button" value="Rojo" onclick="cambiaColor('ff0000')"> 
+    <input type="Button" value="Verde" onclick="cambiaColor('00ff00')"> 
+    <input type="Button" value="Azul" onclick="cambiaColor('0000ff')"> 
+    </form>
+
+    <h1>Rescatar lo seleccionado</h1> 
+    <br>
+    
+    <form> 
+    <input type="button" value="pulsame!" onClick="mostrarSeleccionado()"> 
+    </form>
+    
+    Selecciona cualquier texto de la página y pulsa sobre el botón.
+    
+</body>
+</html>

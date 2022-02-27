@@ -1,0 +1,41 @@
+<html>
+<head>
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<script>
+    $(document).ready(function(){ 
+       $("#capa1").html('aún no has pulsado');
+       $("#celda1").click(function(){
+          texto1=$("#celda1").html();
+          $("#capa1").html(texto1);
+       });
+       $("#celda2").click(function(){
+          texto2=$("#celda2").html();
+          $("#capa1").html(texto2);
+       });
+       $("#celda3").click(function(){
+          texto3=$("#celda3").html();
+          $("#capa1").html(texto3);
+       });
+    });
+    </script>
+<div id="capa1" style="width: 30%; height: 100px; border: 1px solid black; float: right;">
+
+</div>
+<p><b>Pulsa en las celdas para copiar su contenido:</b></p>
+<br/>
+<table border="1px solid black" width="50%">
+   <tr>
+     <td id="celda1">Este texto puedes copiarlo en el recuadro haciendo click sobre él</td>
+     <td id="celda2">Esta es la segunda celda y también puedes copiarla haciendo click</td>
+     <td id="celda3">Estás en la tercera celda, <b>para copiarla haz click.</b></td>
+   </tr>
+</table>
+
+</body>
+</html>

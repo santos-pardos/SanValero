@@ -1,0 +1,27 @@
+<html>
+<head>
+
+<script>
+    function validaSubmite(){ 
+        if (document.miFormulario.campo1.value == "") 
+           alert("Debe rellenar el formulario") 
+        else 
+           document.miFormulario.submit() 
+ }
+</script>
+
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<form name="miFormulario" action="mailto:promocion@guiarte.com" enctype="text/plain"> 
+    <input type="Text" name="campo1" value="" size="12"> 
+    <input type="button" value="Enviar" onclick="validaSubmite()"> 
+    </form>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<script></script>
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<script>
+var miObjeto = {
+    propiedad1: "Algo",
+    propiedad2: "Otra cosa",
+    propiedad3: true,
+    propiedad4: 344,
+
+    metodo1: function(){
+          alert("Ejecutaste metodo1");
+    },
+    metodo2: funcionMetodo2
+}
+
+function funcionMetodo2(){
+    //puedo usar la variable this para acceder a mis propias propiedades o métodos
+    this.propiedad2 = "Esto lo he modificado desde el método metodo2";
+}
+
+//Veamos el valor de esas propiedades
+console.log(miObjeto.propiedad1);
+console.log(miObjeto.propiedad2);
+
+//ejecutemos algún método
+miObjeto.metodo1();
+miObjeto.metodo2();
+
+//creamos nuevas propiedades
+miObjeto.otraPropiedad = "Esto está creado a posteriori";
+
+//creamos nuevos métodos
+miObjeto.otroMetodo = function(){
+    console.log("ejecutaste otro método");
+}
+
+//veamos el contenido de todo el objeto
+console.log(miObjeto);
+</script>
+</body>
+</html>

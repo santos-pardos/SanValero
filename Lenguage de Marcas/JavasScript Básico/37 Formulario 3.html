@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+   <title>Campos de texto obligatorios</title> 
+<script type="text/javascript">
+function comprobar() { 
+         var nombre = document.formulario.nombre;
+         var apellido = document.formulario.apellido;
+         var aviso = document.getElementById("aviso");
+         aviso.innerHTML = ""
+         var enviar = "si"
+         if (nombre.value == "" || nombre.value.indexOf(" ") == 0) {
+            var texto = "Es obligatorio introducir el nombre.<br/>"  
+            aviso.innerHTML += texto
+            enviar = "no"
+            }
+         if (apellido.value == "" || apellido.value.indexOf(" ") == 0 ) {
+            var texto = "Es obligatorio introducir el apellido.<br/>"  
+            aviso.innerHTML += texto
+            enviar = "no"
+            }
+         if (enviar == "no") {return false}
+         }
+function restaurar() {
+         var aviso = document.getElementById("aviso");
+         aviso.innerHTML = ""
+         }
+</script>
+</head>
+<body>
+<h1>comprobar campos de texto obligatorios</h1>
+   <p>Estos datos son obligatorios, y no pueden empezar 
+	    por un espacio en blanco.</p>
+<form name="formulario" action="mailto:direccion@serv.es" 
+       onsubmit="return comprobar()">
+   <input type="text" name="nombre" onfocus="restaurar()"/>�
+       Nombre<br/><br/>
+   <input type="text" name="apellido" onfocus="restaurar()" />
+       Apellido<br/><br/>
+   <input type="submit" />
+</form>
+   <p id="aviso"></p>
+</body>
+</html>

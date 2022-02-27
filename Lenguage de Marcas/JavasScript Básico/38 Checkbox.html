@@ -1,0 +1,29 @@
+<html> 
+<head> 
+   	<title>Ejemplo Checkbox</title> 
+<script> 
+function alertaChecked(){ 
+   	alert(document.miFormulario.miCheck.checked) 
+} 
+function alertaValue(){ 
+   	alert(document.miFormulario.miCheck.value) 
+} 
+function metodoClick(){ 
+   	document.miFormulario.miCheck.click() 
+} 
+</script> 
+</head>
+
+<body> 
+<form name="miFormulario" action="mailto:promocion@guiarte.com" enctype="text/plain"> 
+<input type="checkbox" name="miCheck"> 
+<br> 
+<br> 
+<input type="button" value="informa de su propiedad checked" onclick="alertaChecked()"> 
+<input type="button" value="informa de su propiedad value" onclick="alertaValue()"> 
+<br> 
+<br> 
+<input type="button" value="Simula un click" onclick="metodoClick()"> 
+</form> 
+</body> 
+</html>

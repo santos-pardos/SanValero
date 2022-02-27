@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery example: touch events</title>
+        <style>
+            p {
+                width: 400px;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>Touch Events</h1>
+    <p>
+    If you're using a mobile browser, touch the screen with one or more
+    fingers and see what happens.  If you're on a desktop browser you 
+    can use Chrome Dev Tools to simulate touch events.  See the section on 
+    <a href="https://developer.chrome.com/devtools/docs/device-mode#device-sensors">emulating sensors</a> for more details.
+    </p>
+    <p>
+    For a detailed explanation of the Touch Events standard please see the
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"> touch events</a> page on the Mozilla Developer Network (MDN).
+    </p>
+
+    <!--source for jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+
+    <script>
+        // touchstart events when you first press the screen with
+        // your finger
+        $(document).on("touchstart", function(e) {
+            e.preventDefault();
+            
+            // changedTouches contains all of the touchstart events
+            // that occurred at the same time
+            var changedTouches = e.originalEvent.changedTouches;
+            
+            for (var i = 0; i < changedTouches.length; i++) {
+                var touch = changedTouches[i];
+                
+                $("<img>").attr({
+                    src: "https://www.kasandbox.org/programming-images/avatars/mr-pink.png",
+                    // each touch has a unique identifier
+                    // we'll assign use this identifier as
+                    // the id so that each touch is paired
+                    // with an <img>
+                    id: touch.identifier    
+                }).css({
+                    position: "absolute",
+                    left: touch.pageX,
+                    top: touch.pageY
+                }).appendTo(document.body);
+            }
+        });
+        
+        // touchmove events occur when you drag your finger
+        $(document).on("touchmove", function(e) {
+            e.preventDefault();
+            
+            var changedTouches = e.originalEvent.changedTouches;
+            
+            for (var i = 0; i < changedTouches.length; i++) {
+                var touch = changedTouches[i];
+                $("#" + touch.identifier).css({
+                    left: touch.pageX,
+                    top: touch.pageY
+                });
+            }
+        });
+        
+        // touchend events occur when you lift your finger
+        $(document).on("touchend", function(e) {
+            e.preventDefault();
+            
+            var changedTouches = e.originalEvent.changedTouches;
+            
+            for (var i = 0; i < changedTouches.length; i++) {
+                var touch = changedTouches[i];
+                $("#" + touch.identifier).remove();
+            }
+        });
+        
+        // touchcancel events occur when you switch to a different program
+        // or do something to interrupt the stream of touch events
+        $(document).on("touchcancel", function(e) {
+            e.preventDefault();
+            
+            var changedTouches = e.originalEvent.changedTouches;
+            
+            for (var i = 0; i < changedTouches.length; i++) {
+                var touch = changedTouches[i];
+                $("#" + touch.identifier).remove();
+            }
+        });
+    </script>
+
+    </body>
+</html>

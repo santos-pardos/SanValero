@@ -1,0 +1,37 @@
+<html>
+<head>
+<script></script>
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<script>
+    function dimePropiedades(){ 
+           var texto 
+           alert("Propiedades del Formulario")
+           texto = "El numero de opciones del select: " + document.formul.miSelect.length 
+           var indice = document.formul.miSelect.selectedIndex 
+           texto += "\nIndice de la opcion escogida: " + indice 
+           var valor = document.formul.miSelect.options[indice].value 
+           texto += "\nValor de la opcion escogida: " + valor 
+           var textoEscogido = document.formul.miSelect.options[indice].text 
+           texto += "\nTexto de la opcion escogida: " + textoEscogido 
+           alert(texto) }
+    </script>
+
+<form name="formul"> 
+    Valoración sobre este web: 
+    <select name="miSelect"> 
+    <option value="10">Muy bien 
+    <option value="5" selected>Regular 
+    <option value="0">Muy mal 
+    </select> 
+    <br> 
+    <br> 
+    <input type=button value="Dime propiedades" onclick="dimePropiedades()"> 
+    </form>
+
+</body>
+</html>

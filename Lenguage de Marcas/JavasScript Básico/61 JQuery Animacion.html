@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Método animate jQuery</title>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function(){
+   $("#animar").click(function(e){
+      e.preventDefault()
+      $("h1").animate({
+         'border-bottom-width': "20",
+         'font-size': '25pt'
+      });
+   });
+   
+   $("#restaurar").click(function(e){
+      e.preventDefault()
+      $("h1").css({
+         'border-bottom-width': "1",
+         'font-size': '15pt'
+      });
+   });
+})
+</script>
+</head>
+<body>
+<h1 style="border-bottom: 1px solid #ff8800; font-size: 15pt;">Animacion jQuery</h1>
+
+Trabajando con el método animate:
+<a href="#" id="animar">Animar</a>
+
+<br>
+<br>
+
+Vuelvo a lo que había antes:
+<a href="#" id="restaurar">Restaurar</a>
+
+</body>
+</html>

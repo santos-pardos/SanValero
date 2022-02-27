@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso de jQuery</title>
+</head>
+<body>
+    
+    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $(function(){
+            //Tu código jQuery
+            
+        })
+    </script>
+
+<script>
+    $(document).ready(function(){
+    $("a").click(function(evento){
+       alert("Has pulsado el enlace, pero vamos a cancelar el evento...\nPor tanto, no vamos a llevarte a leer el mundo.");
+       evento.preventDefault();
+    });
+ });
+         </script>
+ 
+ <a href="https://www.elmundo.es">Ir a El Mundo.es</a>
+</body>
+</html>

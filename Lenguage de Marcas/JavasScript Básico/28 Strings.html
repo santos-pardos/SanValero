@@ -1,0 +1,34 @@
+<html>
+<head>
+<script></script>
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<script>
+var miString = "Hola Amigos" 
+var result = ""
+
+for (i=0;i<miString.length-1;i++) { 
+   	result += miString.charAt(i) 
+   	result += "-" 
+} 
+result += miString.charAt(miString.length - 1)
+
+document.write(result)
+
+
+var miString = "0123456789" 
+var mitad1,mitad2
+
+posicion_mitad = miString.length / 2
+
+mitad1 = miString.substring(0,posicion_mitad) 
+mitad2 = miString.substring(posicion_mitad,miString.length)
+
+document.write(mitad1 + "<br>" + mitad2)
+</script>
+</body>
+</html>

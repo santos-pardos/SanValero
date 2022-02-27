@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script>
+        function cuenta(){
+               document.forms[0].caracteres.value=document.forms[0].texto.value.length
+        }
+        </script>
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<form action="#" method="post">
+    <table>
+    <tr>
+        <td>Texto:</td>
+        <td><textarea cols="40" rows="5" name="texto" onKeyDown="cuenta()" onKeyUp="cuenta()"></textarea></td>
+    </tr>
+    <tr>
+        <td>Caracteres:</td>
+        <td><input type="text" name=caracteres size=4></td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>

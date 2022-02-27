@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src="jquery-3.1.1.min.js"></script>
+<script>$(function(){
+    function animarBola() {
+      $("#bola").animate({left: '+=150'}, "slow")
+                .animate({top: '+=150'}, "slow")
+                .animate({left: '-=150'}, "slow")
+                .animate({top: '-=150'}, "slow");   
+    }
+    
+    setInterval(animarBola, 2400);
+
+    $(function() {
+  function mostrarHora() {
+    var fecha = new Date(), // nuevo objeto Fecha
+        hora = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+    $('#hora').text(hora);
+  }
+  setInterval(mostrarHora, 1000); // la función "mostrarHora" se ejecuta cada segundo
+});
+  });
+</script>
+<style>#bola {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border: black 2px solid;
+    border-radius : 10px;
+    position: relative;
+  }
+
+  * {
+  font-family: Helvetica;
+  font-size: 20px;
+  text-align: center;
+}
+</style> 
+
+
+</style>
+</head>
+
+<body>
+<H1>
+       
+</H1>
+<div id="bola"></div>
+
+<span id="hora"></span>
+</body>
+</html>

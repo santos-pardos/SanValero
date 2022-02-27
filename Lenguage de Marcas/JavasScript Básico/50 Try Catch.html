@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function ejemploError() {
+
+try{
+
+                var numeroUsuario = prompt('Introduzca un número del 1 al 9 por favor: ');
+
+                if (isNaN(numeroUsuario)|| numeroUsuario<1 ||numeroUsuario>9) {
+
+                               throw new Error('Número introducido no válido');
+
+                }
+
+}
+
+catch(e){alert('Se produjo un error. Referencia: '+e);}
+
+finally {alert('Se ejecuta siempre haya o no captura de error');}
+
+alert('A continuación se le solicitarán los datos fiscales');
+
+}
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploError()"> Probar </div>
+
+</body></html>

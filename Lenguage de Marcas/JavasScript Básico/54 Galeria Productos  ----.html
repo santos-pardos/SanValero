@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Practica de Galeria</title>
+    <style>
+        #gallery-screen {
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+       
+        #thumb {
+            text-align: center;
+        }
+       
+        #thumb div {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            width: 90;
+            height: 90;
+        }
+       
+        #thumb div:hover {
+            border: 1px solid #777;
+        }
+       
+        #thumb div img {
+            max-width: 100%;
+        }
+       
+    </style>
+   
+    <script>
+        //GALERIA
+    function iniciar () {
+        var miniatus1 = document.getElementById('1');
+        var miniatus2 = document.getElementById('2');
+        var miniatus3 = document.getElementById('3');
+        var miniatus4 = document.getElementById('4');
+        var foto = document.getElementById('foto');
+
+        miniatus1.addEventListener('click',camb1,false);
+        miniatus2.addEventListener('click',camb2,false);
+        miniatus3.addEventListener('click',camb3,false);
+        miniatus4.addEventListener('click',camb4,false);    
+
+        function camb1() {
+            foto.src = "http://lorempixel.com/400/400/transport/1";
+        }
+
+        function camb2() {
+            foto.src = "http://lorempixel.com/400/400/sports/2";
+        }
+
+        function camb3() {
+            foto.src = "http://lorempixel.com/400/400/food/3";
+        }
+
+        function camb4() {
+            foto.src = "http://lorempixel.com/400/400/animals/4";
+        }
+    }
+    </script>
+   
+</head>
+<body onload="iniciar()">
+    <div class="gallery">
+        <div id="gallery-screen">
+            <img id="foto" src="http://lorempixel.com/400/400/transport/1" alt="">
+        </div>
+       
+        <div id="thumb">
+            <div id="1"><img src="http://lorempixel.com/90/90/transport/1" alt=""></div>
+            <div id="2"><img src="http://lorempixel.com/90/90/sports/2" alt=""></div>
+            <div id="3"><img src="http://lorempixel.com/90/90/food/3" alt=""></div>
+            <div id="4"><img src="http://lorempixel.com/90/90/animals/4" alt=""></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<html>
+<head>
+  <!--  https://codepen.io/djdunn15/pen/wWaLvW -->
+
+<script src="jquery-3.1.1.min.js"></script>
+<style>
+body {
+	color: white;
+	font-family: sans-serif;
+	background: #384047;
+}
+
+h1 {
+	text-align: center;
+	margin: 30px auto;
+	font-weight: bold;
+}
+
+img {
+	width: 120px;
+	border: 10px solid white;
+	margin: 10px;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	display: inline-block;
+}
+
+.container-fluid {
+	max-width: 800px;
+	text-align: center;
+}
+
+#overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .7);
+	top: 0;
+	left: 0;
+	display: none;
+	text-align: center;
+}
+
+#overlay img {
+	margin-top: 10%;
+	width: 500px;
+}
+</style>
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<script>
+//store html elements into variables
+var $overlay = $('<div id="overlay"></div>');
+var $image = $("<img>");
+var $caption = $("<p></p>");
+
+//add the elements onto each other
+$overlay.append($image);
+$overlay.append($caption);
+$("body").append($overlay);
+
+//click event
+$("#imageGallery a").click(function(event) {
+	//prevent the default functionality of proceeding to a dead link
+	event.preventDefault();
+	//store the image location into a variable
+	var imageLocation = $(this).attr("href");
+	//set the image's attribute src to the image location
+	$image.attr("src", imageLocation);
+	//store the image's alt attribute text into a variable
+	var captionText = $(this).children().attr("alt");
+	//add the text into paragraph tags 
+	$caption.text(captionText);
+	//show the overlay
+	$overlay.show();
+});
+
+//click event
+$overlay.click(function() {
+	//hide the overlay when clicked on
+	$overlay.hide();
+});
+</script>
+
+<h1>Image Gallery</h1>
+    
+    <div class="container-fluid">
+      <ul id="imageGallery">
+        <li>
+          <a href="https://i.imgur.com/BTRfA0D.png">
+            <img src="https://i.imgur.com/BTRfA0D.png" alt="Boat by Griffin Moore">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/gSkOt7T.png">
+            <img src="https://i.imgur.com/gSkOt7T.png" alt="Chuck by Mat Helme">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/B1JqazJ.png">
+            <img src="https://i.imgur.com/B1JqazJ.png" alt="Wanted: Copy McRepeatsalot by Chris Michel">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/1e9rswE.png">
+            <img src="https://i.imgur.com/1e9rswE.png" alt="Education by Chris Michel">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/NShslAl.png">
+            <img src="https://i.imgur.com/NShslAl.png" alt="Illustrator Foundations by Matthew Spiel">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/6IfZsza.png">
+            <img src="https://i.imgur.com/6IfZsza.png" alt="Library by Tyson Rosage">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/sfdvbFt.png">
+            <img src="https://i.imgur.com/sfdvbFt.png" alt="Referal Machine by Matthew Spiel">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/f6cZZU9.png">
+            <img src="https://i.imgur.com/f6cZZU9.png" alt="Sebastian by Mat Helme">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/WEbvIDZ.png">
+            <img src="https://i.imgur.com/WEbvIDZ.png" alt="Skill Polish by Chris Michel">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/7roabAR.png">
+            <img src="https://i.imgur.com/7roabAR.png" alt="Space Juice by Mat Helme">
+          </a>
+        </li>
+        <li>
+          <a href="https://i.imgur.com/HlNF7oY.jpg">
+            <img src="https://i.imgur.com/HlNF7oY.jpg" alt="Treehouse Shop by Eric Smith">
+          </a>
+        </li>
+      </ul>
+    </div>
+</body>
+</html>

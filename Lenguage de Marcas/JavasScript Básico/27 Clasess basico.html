@@ -1,0 +1,45 @@
+<html>
+<head>
+<script></script>
+</head>
+   
+<body>
+<H1>
+       
+</H1>
+<script>
+//definimos el método matricularte para la clase AlumnoUniversitario 
+function matriculate(num_matricula){ 
+   	this.numMatricula = num_matricula 
+} 
+
+//definimos el método imprimete para la clase AlumnoUniversitario 
+function imprimete(){ 
+   	document.write("<br>Nombre: " + this.nombre) 
+   	document.write("<br>Edad: " + this.edad) 
+   	document.write("<br>Número de matrícula: " + this.numMatricula) 
+} 
+
+//definimos el constructor para la clase 
+function AlumnoUniversitario(nombre, edad){ 
+   	this.nombre = nombre 
+   	this.edad = edad 
+   	this.numMatricula = null 
+   	this.matriculate = matriculate 
+   	this.imprimete = imprimete 
+} 
+
+//creamos un alumno 
+miAlumno = new AlumnoUniversitario("José Díaz",23) 
+
+//le pedimos que se imprima 
+miAlumno.imprimete() 
+
+//le pedimos que se matricule 
+miAlumno.matriculate(305) 
+
+//le pedimos que se imprima de nuevo (con el número de matricula relleno) 
+miAlumno.imprimete()
+</script>
+</body>
+</html>
