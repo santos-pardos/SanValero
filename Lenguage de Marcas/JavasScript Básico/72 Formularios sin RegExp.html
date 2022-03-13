@@ -1,0 +1,76 @@
+
+<html>
+    <head>
+    <title>Comprueba rellenos todos los campos</title>
+    <p align="center"><b><font size="5">Comprueba rellenos todos los campos
+    <script LANGUAGE="JavaScript">
+    
+    <!-- This script and many more are available free online at -->
+    <!-- The JavaScript Source!! http://javascript.internet.com -->
+    
+    <!-- Begin
+    function checkFields() {
+    missinginfo = "";
+    if (document.form.name.value == "") {
+    missinginfo += "\n     -  Nombre";
+    }
+    if ((document.form.from.value == "") || 
+    (document.form.from.value.indexOf('@') == -1) || 
+    (document.form.from.value.indexOf('.') == -1)) {
+    missinginfo += "\n     -  Dirección de correo";
+    }
+    if ((document.form.website.value == "") || 
+    (document.form.website.value.indexOf("http://") == -1) || 
+    (document.form.website.value.indexOf(".") == -1)) {
+    missinginfo += "\n     -  Web site";
+    }
+    if(document.form.comments.value == "") {
+    missinginfo += "\n     -  Comentarios";
+    }
+    
+    if (missinginfo != "") {
+    missinginfo ="_____________________________\n" +
+    "Te ha faltado introducir los siguientes datos:\n" +
+    missinginfo + "\n_____________________________" +
+    "\n¡Por favor pulsa enter, rellena los datos y prueba de nuevo!";
+    alert(missinginfo);
+    return false;
+    }
+    else return true;
+    }
+    //  End -->
+    </script>
+    </head>
+    
+    </b>
+    
+    <body>
+    
+    </p>
+    
+    <form name="form" onSubmit="return checkFields();">
+      <input type="hidden" name="to" value="you @ your domain . web">
+      <input type="hidden" name="subject" value="Freedback">
+      <div align="left">
+      <pre>Nombre: <input type="text" name="name" size="30">
+    
+    E-mail: <input type="text" name="from" size="30">
+    
+    Página web:  <input type="text" value="http://" name="website" size="30">
+    
+    Comentarios:  <textarea rows="3" cols="40" name="comments"></textarea>
+    
+    <input type="submit" name="submit" value="Enviar formulario">
+    </pre>
+      </div>
+    </form>
+    <p></p>
+    <center>
+    <p>&nbsp;</p>
+    </center>
+    <p></p>
+    <!-- Script Size:  1.94 KB -->
+    
+    </body>
+    
+    </html>

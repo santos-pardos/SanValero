@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+<script>
+    /**
+     * Array con las imagenes y enlaces que se iran mostrando en la web
+     */
+    var imagenes=new Array(
+        ['foto1.jpg','http://www.elmundo.es/'],
+        ['foto2.jpg','http://www.elpais.es/'],
+        ['foto3.jpg','http://www.elconfidencial.com/'],
+        ['foto4.jpg','http://www.heraldo.es/']
+    );
+    var contador=0;
+ 
+    /**
+     * Funcion para cambiar la imagen y link
+     */
+    function rotarImagenes()
+    {
+        // cambiamos la imagen y la url
+        contador++
+        document.getElementById("imagen").src=imagenes[contador%imagenes.length][0];
+        document.getElementById("link").href=imagenes[contador%imagenes.length][1];
+    }
+ 
+    /**
+     * Función que se ejecuta una vez cargada la página
+     */
+    onload=function()
+    {
+        // Cargamos una imagen aleatoria
+        rotarImagenes();
+ 
+        // Indicamos que cada 5 segundos cambie la imagen
+        setInterval(rotarImagenes,5000);
+    }
+</script>
+</head>
+ 
+<H1>Carrusel 5 segundos</H1>
+<body>
+ 
+<a href="" id="link"><img src="" id="imagen"></a>
+ 
+</body>
+</html>

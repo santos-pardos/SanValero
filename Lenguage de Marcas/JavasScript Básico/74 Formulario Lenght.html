@@ -1,0 +1,246 @@
+<html>
+<head>
+<title>Validación campos de formulario 4</title>
+<p align="center"><b><font size="5">Validación campos de formulario 4</b></p>
+
+<style type="text/css">
+.link{font-family:verdana,arial,helvetica; font-size:8pt; color:#003399; font-weight:normal}
+.link:hover{font-family:verdana,arial,helvetica; font-size:8pt; color:#FF9900; font-weight:normal}
+.header{font-family:arial,verdana,helvetica; font-size:30pt; color:#CC0000; font-weight:bold}
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<center><span class="header">
+<center>
+
+<!--------------------------------------BEGIN REQUIRED----------------------------------------->
+<!--BEGIN THE FORM-->
+<table style="border:3 solid #CC0000" bgcolor="#EFEFEF"><tr><td>
+<font face="verdana,arial,helvetica" size="-1" color="#000000">
+<form name="main" method="get" action="http://www.YourServer.com/cgi-bin/SomeCgiFile.cgi">
+<input type="text" width="30" name="name" style="border:1 solid #000000" size="20"> &lt;&lt; 
+Nombre<br>
+<input type="text" width="30" name="address" style="border:1 solid #000000" size="20"> &lt;&lt; 
+Dirección<br>
+<input type="text" width="30" name="age" style="border:1 solid #000000" size="20"> &lt;&lt; 
+Edad<br>
+<input type="text" width="30" name="zip" style="border:1 solid #000000" size="20"> &lt;&lt; 
+C. Postal<br><br>
+<center>
+<input type="button" value="Enviar" onClick="javascript:validate();" style="border:1 solid #000000; cursor:pointer; cursor:hand; width:120"> <input type="reset" style="border:1 solid #000000; cursor:hand; cursor:pointer; width:120"></center>
+</form>
+</font>
+</td></tr></table>
+<!--END THE FORM-->
+
+<!--BEGIN FORM VALIDATION SCRIPT-->
+<script language="JavaScript1.2">
+/* Written by Premshree Pillai
+   Created 2:22 PM 5/12/02
+   http://www.qiksearch.com
+   http://premshree.resource-locator.com
+   qiksearch@rediffmail.com */
+
+var alphaChars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+var numChars="0123456789";
+var error;
+var error_n;
+var error_ad;
+var error_a;
+var error_z;
+var errormsg;
+
+//--------------------------Customise-------------------------------
+var isNameReq=true; // True if Name field required else False
+var isAddressReq=true; // True if Address field required else False
+var isAgeReq=false; // True if Name Age required else False
+var isZipReq=true; // True if Name Zip required else False
+//------------------------------------------------------------------
+
+function reset_error()
+{
+ error_n=false;
+ error_ad=false;
+ error_a=false;
+ error_z=false;
+ errormsg='Following Errors Occured ::\n_____________________________\n\n';
+}
+
+function validate_name()
+{
+ if(isNameReq)
+ {
+  if(document.main.name.value=="")
+  {
+   errormsg+='Por favor, entra tu nombre.\n';
+   error_n=true;
+   document.main.name.focus();
+  }
+ }
+ for(var i=0; i<document.main.name.value.length; i++)
+ {
+  for(var j=0; j<alphaChars.length; j++)
+  {
+   if(alphaChars.charAt(j)==document.main.name.value.charAt(i))
+   {
+    break;
+   }
+   else
+   {
+    if(j==(alphaChars.length-1))
+    {
+     errormsg+='"' + document.main.name.value.charAt(i) + '"' + ' no es un carácter válido para el nombre.\n';
+     error_n=true;
+    }
+   }
+   if(error_n)
+   {
+    document.main.name.select();
+   }
+  }
+ }
+}
+
+function validate_address()
+{
+ if(isAddressReq)
+ {
+  if(document.main.address.value=="")
+  {
+   errormsg+='Por favor, entra tu dirección.\n';
+   error_ad=true;
+   if(!error_n)
+   {
+    document.main.address.focus();
+   }
+  }
+ }
+}
+
+function validate_age()
+{
+ if(isAgeReq)
+ {
+  if(document.main.age.value=="")
+  {
+   errormsg+='Por favor, entra tu edad.\n';
+   error_a=true;
+   if((!error_n)&&(!error_ad))
+   {
+    document.main.age.focus();
+   }
+  }
+ }
+ for(var i=0; i<document.main.age.value.length; i++)
+ {
+  for(var j=0; j<numChars.length; j++)
+  {
+   if(numChars.charAt(j)==document.main.age.value.charAt(i))
+   {
+    break;
+   }
+   else
+   {
+    if(j==(numChars.length-1))
+    {
+     errormsg+='"' + document.main.age.value.charAt(i) + '"' + ' es un carácter no válido para la edad.\n';
+     error_a=true;
+    }
+   }
+   if(error_a)
+   {
+    if((!error_n)&&(!error_ad))
+    {
+     document.main.age.select();
+    }
+   }
+  }
+ }
+}
+
+function validate_zip()
+{
+ if(isZipReq)
+ {
+  if(document.main.zip.value=="")
+  {
+   errormsg+='Por favor, entra el código postal.\n';
+   error_z=true;
+   if((!error_n)&&(!error_ad)&&(!error_a))
+   {
+    document.main.zip.focus();
+   }
+  }
+ }
+ for(var i=0; i<document.main.zip.value.length; i++)
+ {
+  for(var j=0; j<numChars.length; j++)
+  {
+   if(numChars.charAt(j)==document.main.zip.value.charAt(i))
+   {
+    break;
+   }
+   else
+   {
+    if(j==(numChars.length-1))
+    {
+     errormsg+='"' + document.main.zip.value.charAt(i) + '"' + ' no es un carácter válido para el código postal.\n';
+     error_z=true;
+    }
+   }
+   if(error_z)
+   {
+    if((!error_n)&&(!error_ad)&&(!error_a))
+    {
+     document.main.zip.select();
+    }
+   }
+  }
+ }
+}
+
+function validate()
+{
+ reset_error();
+ validate_name();
+ validate_address();
+ validate_age();
+ validate_zip();
+
+ if(error_n||error_ad||error_a||error_z)
+ {
+  error=true;
+ }
+ else
+ {
+  error=false;
+ }
+ if(!error)
+ {
+  document.main.submit();
+ }
+ else
+ {
+  alert(errormsg);
+ }
+}
+
+</script>
+<!--END FORM VALIDATION SCRIPT-->
+<!--------------------------------------END REQUIRED------------------------------------------->
+
+</center><br>
+
+<table align="center" width="400"><tr><td>
+<font face="verdana,arial,helvetica" size="-1" color="#000000">
+<b>Restricciones:</b><br>
+-
+No está permitido entrar valores numéricos en el campo &quot;Nombre&quot;:<br>
+-
+No está permitido entrar valores alfanuméricos en los campos &quot;Edad&quot; y &quot;C.Postal&quot;.<br>
+<br>También puedes elegir qué campos deben ser obligatorios.<hr style="color:#CC0000; height:1px; width:100%">
+</font>
+</td></tr></table>
+
+</body>
+</html>

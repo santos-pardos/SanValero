@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RegExp</title>
+</head>
+<body>
+	<form action="recibir_formulario.php" onsubmit="javascript: return ValidarCorreo();">
+		Correo Electrónico:
+		<input type="text" id="CampoCorreo" name="CampoCorreo">
+		<br>
+		<input type="submit" value="Enviar">
+	</form>
+ 
+	<script language="javascript">
+		var ExpresionCorreo = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+ 
+		function ValidarCorreo(){
+			if (ExpresionCorreo.test(document.getElementById('CampoCorreo').value)){
+				return true;
+			} else {
+				alert("El correo no es válido");
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
