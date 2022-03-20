@@ -1,2 +1,0 @@
-# Basics Dockers
-# Dockerfile example
